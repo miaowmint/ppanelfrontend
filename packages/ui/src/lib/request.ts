@@ -164,7 +164,9 @@ function handleError(response: {
   toast.error(message);
 }
 
-const request = axios.create();
+const request = axios.create({
+  baseURL: import.meta.env.VITE_API_BASE_URL,
+});
 
 request.interceptors.request.use(
   (

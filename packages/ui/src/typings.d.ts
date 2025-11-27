@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 import type i18n from "i18next";
 
 declare global {
