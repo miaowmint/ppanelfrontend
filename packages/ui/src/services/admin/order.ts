@@ -6,7 +6,7 @@ export async function createOrder(
   body: API.CreateOrderRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.Response & { data?: any }>("/v1/admin/order/", {
+  return request<API.Response & { data?: any }>("/api/v1/admin/order/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -23,7 +23,7 @@ export async function getOrderList(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.GetOrderListResponse }>(
-    "/v1/admin/order/list",
+    "/api/v1/admin/order/list",
     {
       method: "GET",
       params: {
@@ -39,7 +39,7 @@ export async function updateOrderStatus(
   body: API.UpdateOrderStatusRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.Response & { data?: any }>("/v1/admin/order/status", {
+  return request<API.Response & { data?: any }>("/api/v1/admin/order/status", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

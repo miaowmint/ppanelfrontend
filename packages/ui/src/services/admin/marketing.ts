@@ -9,7 +9,7 @@ export async function getBatchSendEmailTaskList(
 ) {
   return request<
     API.Response & { data?: API.GetBatchSendEmailTaskListResponse }
-  >("/v1/admin/marketing/email/batch/list", {
+  >("/api/v1/admin/marketing/email/batch/list", {
     method: "GET",
     params: {
       ...params,
@@ -24,7 +24,7 @@ export async function getPreSendEmailCount(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.GetPreSendEmailCountResponse }>(
-    "/v1/admin/marketing/email/batch/pre-send-count",
+    "/api/v1/admin/marketing/email/batch/pre-send-count",
     {
       method: "POST",
       headers: {
@@ -42,7 +42,7 @@ export async function createBatchSendEmailTask(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    "/v1/admin/marketing/email/batch/send",
+    "/api/v1/admin/marketing/email/batch/send",
     {
       method: "POST",
       headers: {
@@ -61,7 +61,7 @@ export async function getBatchSendEmailTaskStatus(
 ) {
   return request<
     API.Response & { data?: API.GetBatchSendEmailTaskStatusResponse }
-  >("/v1/admin/marketing/email/batch/status", {
+  >("/api/v1/admin/marketing/email/batch/status", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -77,7 +77,7 @@ export async function stopBatchSendEmailTask(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    "/v1/admin/marketing/email/batch/stop",
+    "/api/v1/admin/marketing/email/batch/stop",
     {
       method: "POST",
       headers: {
@@ -95,7 +95,7 @@ export async function createQuotaTask(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    "/v1/admin/marketing/quota/create",
+    "/api/v1/admin/marketing/quota/create",
     {
       method: "POST",
       headers: {
@@ -114,7 +114,7 @@ export async function queryQuotaTaskList(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.QueryQuotaTaskListResponse }>(
-    "/v1/admin/marketing/quota/list",
+    "/api/v1/admin/marketing/quota/list",
     {
       method: "GET",
       params: {
@@ -131,7 +131,7 @@ export async function queryQuotaTaskPreCount(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.QueryQuotaTaskPreCountResponse }>(
-    "/v1/admin/marketing/quota/pre-count",
+    "/api/v1/admin/marketing/quota/pre-count",
     {
       method: "POST",
       headers: {

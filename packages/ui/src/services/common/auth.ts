@@ -8,7 +8,7 @@ export async function checkUser(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.CheckUserResponse }>(
-    "/v1/auth/check",
+    "/api/v1/auth/check",
     {
       method: "GET",
       params: {
@@ -26,7 +26,7 @@ export async function checkUserTelephone(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.TelephoneCheckUserResponse }>(
-    "/v1/auth/check/telephone",
+    "/api/v1/auth/check/telephone",
     {
       method: "GET",
       params: {
@@ -43,7 +43,7 @@ export async function userLogin(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.LoginResponse }>(
-    "/v1/auth/login",
+    "/api/v1/auth/login",
     {
       method: "POST",
       headers: {
@@ -61,7 +61,7 @@ export async function deviceLogin(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.LoginResponse }>(
-    "/v1/auth/login/device",
+    "/api/v1/auth/login/device",
     {
       method: "POST",
       headers: {
@@ -79,7 +79,7 @@ export async function telephoneLogin(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.LoginResponse }>(
-    "/v1/auth/login/telephone",
+    "/api/v1/auth/login/telephone",
     {
       method: "POST",
       headers: {
@@ -97,7 +97,7 @@ export async function userRegister(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.LoginResponse }>(
-    "/v1/auth/register",
+    "/api/v1/auth/register",
     {
       method: "POST",
       headers: {
@@ -115,7 +115,7 @@ export async function telephoneUserRegister(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.LoginResponse }>(
-    "/v1/auth/register/telephone",
+    "/api/v1/auth/register/telephone",
     {
       method: "POST",
       headers: {
@@ -133,7 +133,7 @@ export async function resetPassword(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.LoginResponse }>(
-    "/v1/auth/reset",
+    "/api/v1/auth/reset",
     {
       method: "POST",
       headers: {
@@ -151,7 +151,7 @@ export async function telephoneResetPassword(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.LoginResponse }>(
-    "/v1/auth/reset/telephone",
+    "/api/v1/auth/reset/telephone",
     {
       method: "POST",
       headers: {

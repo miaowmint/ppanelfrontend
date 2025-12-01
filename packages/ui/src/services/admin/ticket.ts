@@ -6,7 +6,7 @@ export async function updateTicketStatus(
   body: API.UpdateTicketStatusRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.Response & { data?: any }>("/v1/admin/ticket/", {
+  return request<API.Response & { data?: any }>("/api/v1/admin/ticket/", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -23,7 +23,7 @@ export async function getTicket(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.Ticket }>(
-    "/v1/admin/ticket/detail",
+    "/api/v1/admin/ticket/detail",
     {
       method: "GET",
       params: {
@@ -39,7 +39,7 @@ export async function createTicketFollow(
   body: API.CreateTicketFollowRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.Response & { data?: any }>("/v1/admin/ticket/follow", {
+  return request<API.Response & { data?: any }>("/api/v1/admin/ticket/follow", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -56,7 +56,7 @@ export async function getTicketList(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.GetTicketListResponse }>(
-    "/v1/admin/ticket/list",
+    "/api/v1/admin/ticket/list",
     {
       method: "GET",
       params: {

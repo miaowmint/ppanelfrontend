@@ -1,23 +1,26 @@
+const baseConfig = {
+  requestLibPath: "import request from '@workspace/ui/lib/request';",
+  serversPath: "./src/services",
+  apiPrefix: "'/api'",
+};
+
 const config = [
   {
-    requestLibPath: "import request from '@workspace/ui/lib/request';",
+    ...baseConfig,
     schemaPath:
       "https://raw.githubusercontent.com/perfect-panel/ppanel-docs/refs/heads/main/public/swagger/common.json",
-    serversPath: "./src/services",
     projectName: "common",
   },
   {
-    requestLibPath: "import request from '@workspace/ui/lib/request';",
+    ...baseConfig,
     schemaPath:
       "https://raw.githubusercontent.com/perfect-panel/ppanel-docs/refs/heads/main/public/swagger/user.json",
-    serversPath: "./src/services",
     projectName: "user",
   },
   {
-    requestLibPath: "import request from '@workspace/ui/lib/request';",
+    ...baseConfig,
     schemaPath:
       "https://raw.githubusercontent.com/perfect-panel/ppanel-docs/refs/heads/main/public/swagger/admin.json",
-    serversPath: "./src/services",
     projectName: "admin",
   },
 ];

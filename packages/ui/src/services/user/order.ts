@@ -6,7 +6,7 @@ export async function closeOrder(
   body: API.CloseOrderRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.Response & { data?: any }>("/v1/public/order/close", {
+  return request<API.Response & { data?: any }>("/api/v1/public/order/close", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -23,7 +23,7 @@ export async function queryOrderDetail(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.OrderDetail }>(
-    "/v1/public/order/detail",
+    "/api/v1/public/order/detail",
     {
       method: "GET",
       params: {
@@ -41,7 +41,7 @@ export async function queryOrderList(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.QueryOrderListResponse }>(
-    "/v1/public/order/list",
+    "/api/v1/public/order/list",
     {
       method: "GET",
       params: {
@@ -58,7 +58,7 @@ export async function preCreateOrder(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.PreOrderResponse }>(
-    "/v1/public/order/pre",
+    "/api/v1/public/order/pre",
     {
       method: "POST",
       headers: {
@@ -76,7 +76,7 @@ export async function purchase(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.PurchaseOrderResponse }>(
-    "/v1/public/order/purchase",
+    "/api/v1/public/order/purchase",
     {
       method: "POST",
       headers: {
@@ -94,7 +94,7 @@ export async function recharge(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.RechargeOrderResponse }>(
-    "/v1/public/order/recharge",
+    "/api/v1/public/order/recharge",
     {
       method: "POST",
       headers: {
@@ -112,7 +112,7 @@ export async function renewal(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.RenewalOrderResponse }>(
-    "/v1/public/order/renewal",
+    "/api/v1/public/order/renewal",
     {
       method: "POST",
       headers: {
@@ -130,7 +130,7 @@ export async function resetTraffic(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.ResetTrafficOrderResponse }>(
-    "/v1/public/order/reset",
+    "/api/v1/public/order/reset",
     {
       method: "POST",
       headers: {

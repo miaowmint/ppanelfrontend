@@ -8,7 +8,7 @@ export async function queryAnnouncement(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.QueryAnnouncementResponse }>(
-    "/v1/public/announcement/list",
+    "/api/v1/public/announcement/list",
     {
       method: "GET",
       params: {

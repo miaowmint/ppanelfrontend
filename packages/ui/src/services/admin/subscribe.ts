@@ -6,7 +6,7 @@ export async function updateSubscribe(
   body: API.UpdateSubscribeRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.Response & { data?: any }>("/v1/admin/subscribe/", {
+  return request<API.Response & { data?: any }>("/api/v1/admin/subscribe/", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -21,7 +21,7 @@ export async function createSubscribe(
   body: API.CreateSubscribeRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.Response & { data?: any }>("/v1/admin/subscribe/", {
+  return request<API.Response & { data?: any }>("/api/v1/admin/subscribe/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -36,7 +36,7 @@ export async function deleteSubscribe(
   body: API.DeleteSubscribeRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.Response & { data?: any }>("/v1/admin/subscribe/", {
+  return request<API.Response & { data?: any }>("/api/v1/admin/subscribe/", {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -51,14 +51,17 @@ export async function batchDeleteSubscribe(
   body: API.BatchDeleteSubscribeRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.Response & { data?: any }>("/v1/admin/subscribe/batch", {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    data: body,
-    ...(options || {}),
-  });
+  return request<API.Response & { data?: any }>(
+    "/api/v1/admin/subscribe/batch",
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: body,
+      ...(options || {}),
+    }
+  );
 }
 
 /** Get subscribe details GET /v1/admin/subscribe/details */
@@ -68,7 +71,7 @@ export async function getSubscribeDetails(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.Subscribe }>(
-    "/v1/admin/subscribe/details",
+    "/api/v1/admin/subscribe/details",
     {
       method: "GET",
       params: {
@@ -84,14 +87,17 @@ export async function updateSubscribeGroup(
   body: API.UpdateSubscribeGroupRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.Response & { data?: any }>("/v1/admin/subscribe/group", {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    data: body,
-    ...(options || {}),
-  });
+  return request<API.Response & { data?: any }>(
+    "/api/v1/admin/subscribe/group",
+    {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: body,
+      ...(options || {}),
+    }
+  );
 }
 
 /** Create subscribe group POST /v1/admin/subscribe/group */
@@ -99,14 +105,17 @@ export async function createSubscribeGroup(
   body: API.CreateSubscribeGroupRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.Response & { data?: any }>("/v1/admin/subscribe/group", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    data: body,
-    ...(options || {}),
-  });
+  return request<API.Response & { data?: any }>(
+    "/api/v1/admin/subscribe/group",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: body,
+      ...(options || {}),
+    }
+  );
 }
 
 /** Delete subscribe group DELETE /v1/admin/subscribe/group */
@@ -114,14 +123,17 @@ export async function deleteSubscribeGroup(
   body: API.DeleteSubscribeGroupRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.Response & { data?: any }>("/v1/admin/subscribe/group", {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    data: body,
-    ...(options || {}),
-  });
+  return request<API.Response & { data?: any }>(
+    "/api/v1/admin/subscribe/group",
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: body,
+      ...(options || {}),
+    }
+  );
 }
 
 /** Batch delete subscribe group DELETE /v1/admin/subscribe/group/batch */
@@ -130,7 +142,7 @@ export async function batchDeleteSubscribeGroup(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    "/v1/admin/subscribe/group/batch",
+    "/api/v1/admin/subscribe/group/batch",
     {
       method: "DELETE",
       headers: {
@@ -145,7 +157,7 @@ export async function batchDeleteSubscribeGroup(
 /** Get subscribe group list GET /v1/admin/subscribe/group/list */
 export async function getSubscribeGroupList(options?: { [key: string]: any }) {
   return request<API.Response & { data?: API.GetSubscribeGroupListResponse }>(
-    "/v1/admin/subscribe/group/list",
+    "/api/v1/admin/subscribe/group/list",
     {
       method: "GET",
       ...(options || {}),
@@ -160,7 +172,7 @@ export async function getSubscribeList(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.GetSubscribeListResponse }>(
-    "/v1/admin/subscribe/list",
+    "/api/v1/admin/subscribe/list",
     {
       method: "GET",
       params: {
@@ -174,7 +186,7 @@ export async function getSubscribeList(
 /** Reset all subscribe tokens POST /v1/admin/subscribe/reset_all_token */
 export async function resetAllSubscribeToken(options?: { [key: string]: any }) {
   return request<API.Response & { data?: API.ResetAllSubscribeTokenResponse }>(
-    "/v1/admin/subscribe/reset_all_token",
+    "/api/v1/admin/subscribe/reset_all_token",
     {
       method: "POST",
       ...(options || {}),
@@ -187,12 +199,15 @@ export async function subscribeSort(
   body: API.SubscribeSortRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.Response & { data?: any }>("/v1/admin/subscribe/sort", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    data: body,
-    ...(options || {}),
-  });
+  return request<API.Response & { data?: any }>(
+    "/api/v1/admin/subscribe/sort",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: body,
+      ...(options || {}),
+    }
+  );
 }

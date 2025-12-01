@@ -6,7 +6,7 @@ export async function updateDocument(
   body: API.UpdateDocumentRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.Response & { data?: any }>("/v1/admin/document/", {
+  return request<API.Response & { data?: any }>("/api/v1/admin/document/", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -21,7 +21,7 @@ export async function createDocument(
   body: API.CreateDocumentRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.Response & { data?: any }>("/v1/admin/document/", {
+  return request<API.Response & { data?: any }>("/api/v1/admin/document/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -36,7 +36,7 @@ export async function deleteDocument(
   body: API.DeleteDocumentRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.Response & { data?: any }>("/v1/admin/document/", {
+  return request<API.Response & { data?: any }>("/api/v1/admin/document/", {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -51,20 +51,23 @@ export async function batchDeleteDocument(
   body: API.BatchDeleteDocumentRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.Response & { data?: any }>("/v1/admin/document/batch", {
-    method: "DELETE",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    data: body,
-    ...(options || {}),
-  });
+  return request<API.Response & { data?: any }>(
+    "/api/v1/admin/document/batch",
+    {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: body,
+      ...(options || {}),
+    }
+  );
 }
 
 /** Get document detail GET /v1/admin/document/detail */
 export async function getDocumentDetail(options?: { [key: string]: any }) {
   return request<API.Response & { data?: API.Document }>(
-    "/v1/admin/document/detail",
+    "/api/v1/admin/document/detail",
     {
       method: "GET",
       ...(options || {}),
@@ -79,7 +82,7 @@ export async function getDocumentList(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.GetDocumentListResponse }>(
-    "/v1/admin/document/list",
+    "/api/v1/admin/document/list",
     {
       method: "GET",
       params: {

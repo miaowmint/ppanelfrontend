@@ -8,7 +8,7 @@ export async function querySubscribeList(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.QuerySubscribeListResponse }>(
-    "/v1/public/subscribe/list",
+    "/api/v1/public/subscribe/list",
     {
       method: "GET",
       params: {
@@ -25,7 +25,7 @@ export async function queryUserSubscribeNodeList(options?: {
 }) {
   return request<
     API.Response & { data?: API.QueryUserSubscribeNodeListResponse }
-  >("/v1/public/subscribe/node/list", {
+  >("/api/v1/public/subscribe/node/list", {
     method: "GET",
     ...(options || {}),
   });

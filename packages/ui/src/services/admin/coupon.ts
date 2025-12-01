@@ -6,7 +6,7 @@ export async function updateCoupon(
   body: API.UpdateCouponRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.Response & { data?: any }>("/v1/admin/coupon/", {
+  return request<API.Response & { data?: any }>("/api/v1/admin/coupon/", {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -21,7 +21,7 @@ export async function createCoupon(
   body: API.CreateCouponRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.Response & { data?: any }>("/v1/admin/coupon/", {
+  return request<API.Response & { data?: any }>("/api/v1/admin/coupon/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -36,7 +36,7 @@ export async function deleteCoupon(
   body: API.DeleteCouponRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.Response & { data?: any }>("/v1/admin/coupon/", {
+  return request<API.Response & { data?: any }>("/api/v1/admin/coupon/", {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -51,7 +51,7 @@ export async function batchDeleteCoupon(
   body: API.BatchDeleteCouponRequest,
   options?: { [key: string]: any }
 ) {
-  return request<API.Response & { data?: any }>("/v1/admin/coupon/batch", {
+  return request<API.Response & { data?: any }>("/api/v1/admin/coupon/batch", {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
@@ -68,7 +68,7 @@ export async function getCouponList(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.GetCouponListResponse }>(
-    "/v1/admin/coupon/list",
+    "/api/v1/admin/coupon/list",
     {
       method: "GET",
       params: {
