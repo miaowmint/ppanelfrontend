@@ -88,7 +88,7 @@ export default function ResetTraffic({
                   const orderNo = response.data.data?.order_no;
                   if (orderNo) {
                     getUserInfo();
-                    window.location.href = `/payment?order_no=${orderNo}`;
+                    window.location.href = `/#/payment?order_no=${orderNo}`;
                   }
                 } catch (error) {
                   console.log(error);

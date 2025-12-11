@@ -86,7 +86,7 @@ export default function Recharge(
                   const response = await recharge(params);
                   const orderNo = response.data.data?.order_no;
                   if (orderNo) {
-                    window.location.href = `/payment?order_no=${orderNo}`;
+                    window.location.href = `/#/payment?order_no=${orderNo}`;
                     setOpen(false);
                   }
                 } catch (_error) {
