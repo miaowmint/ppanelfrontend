@@ -151,10 +151,10 @@
 - 功能: 使用 Go 模板语法编写订阅内容
 - 支持: 语法高亮、代码补全
 - 变量:
-  - `{{.SiteName}}`: 网站名称
-  - `{{.SubscribeName}}`: 订阅名称
-  - `{{.Proxies}}`: 节点数组
-  - `{{.UserInfo}}`: 用户信息
+  - <code v-pre>{{.SiteName}}</code>: 网站名称
+  - <code v-pre>{{.SubscribeName}}</code>: 订阅名称
+  - <code v-pre>{{.Proxies}}</code>: 节点数组
+  - <code v-pre>{{.UserInfo}}</code>: 用户信息
 
 **模板变量说明**
 

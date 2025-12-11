@@ -14,10 +14,8 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "docs:dev": "turbo run docs:dev --filter=docs",
-    "docs:build": "turbo run docs:build --filter=docs",
-    "docs:preview": "turbo run docs:preview --filter=docs",
-    "build:release": "turbo run build --filter=ppanel-admin-web... --filter=ppanel-user-web...",
+    "docs:dev": "turbo docs:dev",
+    "docs:build": "turbo docs:build",
     "lint": "turbo lint",
     "check": "turbo check",
     "test": "turbo test",

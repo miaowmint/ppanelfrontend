@@ -151,10 +151,10 @@ A sidebar form that opens when clicking "Add" or "Edit", divided into three tabs
 - Function: Write subscription content using Go template syntax
 - Supports: Syntax highlighting, code completion
 - Variables:
-  - `{{.SiteName}}`: Site name
-  - `{{.SubscribeName}}`: Subscription name
-  - `{{.Proxies}}`: Node array
-  - `{{.UserInfo}}`: User information
+  - <code v-pre>{{.SiteName}}</code>: Site name
+  - <code v-pre>{{.SubscribeName}}</code>: Subscription name
+  - <code v-pre>{{.Proxies}}</code>: Node array
+  - <code v-pre>{{.UserInfo}}</code>: User information
 
 **Template Variable Reference**
 

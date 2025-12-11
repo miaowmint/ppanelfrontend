@@ -130,10 +130,10 @@ Content field contains:
 ```
 
 ### Template Variables
-- {{code}}: Verification code
-- {{minutes}}: Valid time
-- {{product}}: Product name
-- {{amount}}: Amount
+- <code v-pre>{{code}}</code>: Verification code
+- <code v-pre>{{minutes}}</code>: Valid time
+- <code v-pre>{{product}}</code>: Product name
+- <code v-pre>{{amount}}</code>: Amount
 
 ## Cost Management
 

@@ -4,7 +4,7 @@ sidebar: false
 ---
 
 <script setup lang="ts">
-import Sponsors from '../.vitepress/components/Sponsors.vue'
+import Sponsors from './.vitepress/components/Sponsors.vue'
 </script>
 
 <div class="sponsors-header">

@@ -28,11 +28,11 @@ The following sections mirror the cards you see in the admin panel—work throug
 
 3. **Template tabs** (`Verify / Expiration / Maintenance / Traffic`)
    - Templates are HTML-capable and support variables:
-     - `{{.Type}}`: Email type (1 register, 2 reset password); combine with `{{if eq .Type 1}}` for conditions.
-     - `{{.SiteLogo}}` / `{{.SiteName}}`: Branding assets.
-     - `{{.Expire}}`: OTP expiration; `{{.ExpireDate}}`: Subscription expiration.
-     - `{{.Code}}`: Verification code.
-     - `{{.MaintenanceDate}}`, `{{.MaintenanceTime}}`: Maintenance notice specifics.
+     - <code v-pre>{{.Type}}</code>: Email type (1 register, 2 reset password); combine with <code v-pre>{{if eq .Type 1}}</code> for conditions.
+     - <code v-pre>{{.SiteLogo}}</code> / <code v-pre>{{.SiteName}}</code>: Branding assets.
+     - <code v-pre>{{.Expire}}</code>: OTP expiration; <code v-pre>{{.ExpireDate}}</code>: Subscription expiration.
+     - <code v-pre>{{.Code}}</code>: Verification code.
+     - <code v-pre>{{.MaintenanceDate}}</code>, <code v-pre>{{.MaintenanceTime}}</code>: Maintenance notice specifics.
    - The embedded editor is WYSIWYG—save to apply instantly to new outbound mail.
 
 ### SMS authentication
@@ -44,7 +44,7 @@ The following sections mirror the cards you see in the admin panel—work throug
 2. **Platform & dynamic fields**
    - Select an SMS provider; the form reveals the exact fields that provider requires and offers a shortcut link to apply for service.
    - Common fields include `Access Key`, `Secret Key`, `Endpoint`, `Template Code`, `Sign Name`, and dedicated sender numbers.
-   - If the provider expects custom templates, paste the body that contains `{{code}}` (or its vendor-specific variable).
+   - If the provider expects custom templates, paste the body that contains <code v-pre>{{code}}</code> (or its vendor-specific variable).
 
 3. **Test SMS**
    - Choose an area code, enter a number, and click “Test SMS” to call the gateway immediately.
@@ -100,7 +100,7 @@ Best for client/TV apps that exchange a one-time device code.
 - Some enterprise SMTP vendors require the From address to exactly match the authenticated account—otherwise the message is dropped.
 
 ### SMS keeps failing
-- Ensure the template is approved and that the placeholder name (e.g., `{{code}}`) matches what the vendor expects.
+- Ensure the template is approved and that the placeholder name (e.g., <code v-pre>{{code}}</code>) matches what the vendor expects.
 - Verify the destination area code is whitelisted.
 - Still failing? Inspect the API error code in DevTools and cross reference it with the SMS provider documentation.
 

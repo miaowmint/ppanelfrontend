@@ -1,5 +1,3 @@
-<div v-pre>
-
 # Document Management
 
 Create and manage help documents with Markdown format and tag classification.
@@ -45,9 +43,9 @@ Document body, supports Markdown format:
 - Headings: # ## ### ####
 - Bold: **text**
 - Italic: *text*
-- Code blocks: ```language
-- Images: ![alt](url)
-- Links: [text](url)
+- Code blocks: \`\`\`language
+- Images: `![alt](url)`
+- Links: `[text](url)`
 - Lists: - or 1.
 - Quotes: >
 - Tables: | Col1 | Col2 |
@@ -140,5 +138,3 @@ Input tag to find documents in that category.
 6. **Batch Operations**: Can batch delete outdated documents
 7. **Search Optimization**: Titles and tags are search indexed
 8. **Update Indicator**: Update time changes after modification
-
-</div>
