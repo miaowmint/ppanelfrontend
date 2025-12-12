@@ -8,7 +8,7 @@ export async function getAds(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.GetAdsResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/common/ads`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/common/ads`,
     {
       method: "GET",
       params: {
@@ -25,7 +25,9 @@ export async function checkVerificationCode(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.CheckVerificationCodeRespone }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/common/check_verification_code`,
+    `${
+      import.meta.env.VITE_API_PREFIX || ""
+    }/v1/common/check_verification_code`,
     {
       method: "POST",
       headers: {
@@ -40,7 +42,7 @@ export async function checkVerificationCode(
 /** Get Client GET /v1/common/client */
 export async function getClient(options?: { [key: string]: any }) {
   return request<API.Response & { data?: API.GetSubscribeClientResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/common/client`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/common/client`,
     {
       method: "GET",
       ...(options || {}),
@@ -51,7 +53,7 @@ export async function getClient(options?: { [key: string]: any }) {
 /** 此处后端没有提供注释 GET /v1/common/heartbeat */
 export async function heartbeat(options?: { [key: string]: any }) {
   return request<API.Response & { data?: API.HeartbeatResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/common/heartbeat`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/common/heartbeat`,
     {
       method: "GET",
       ...(options || {}),
@@ -65,7 +67,7 @@ export async function sendEmailCode(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.SendCodeResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/common/send_code`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/common/send_code`,
     {
       method: "POST",
       headers: {
@@ -83,7 +85,7 @@ export async function sendSmsCode(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.SendCodeResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/common/send_sms_code`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/common/send_sms_code`,
     {
       method: "POST",
       headers: {
@@ -98,7 +100,7 @@ export async function sendSmsCode(
 /** Get global config GET /v1/common/site/config */
 export async function getGlobalConfig(options?: { [key: string]: any }) {
   return request<API.Response & { data?: API.GetGlobalConfigResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/common/site/config`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/common/site/config`,
     {
       method: "GET",
       ...(options || {}),
@@ -109,7 +111,7 @@ export async function getGlobalConfig(options?: { [key: string]: any }) {
 /** Get Privacy Policy GET /v1/common/site/privacy */
 export async function getPrivacyPolicy(options?: { [key: string]: any }) {
   return request<API.Response & { data?: API.PrivacyPolicyConfig }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/common/site/privacy`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/common/site/privacy`,
     {
       method: "GET",
       ...(options || {}),
@@ -120,7 +122,7 @@ export async function getPrivacyPolicy(options?: { [key: string]: any }) {
 /** Get stat GET /v1/common/site/stat */
 export async function getStat(options?: { [key: string]: any }) {
   return request<API.Response & { data?: API.GetStatResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/common/site/stat`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/common/site/stat`,
     {
       method: "GET",
       ...(options || {}),
@@ -131,7 +133,7 @@ export async function getStat(options?: { [key: string]: any }) {
 /** Get Tos Content GET /v1/common/site/tos */
 export async function getTos(options?: { [key: string]: any }) {
   return request<API.Response & { data?: API.GetTosResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/common/site/tos`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/common/site/tos`,
     {
       method: "GET",
       ...(options || {}),

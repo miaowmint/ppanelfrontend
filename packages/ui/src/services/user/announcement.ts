@@ -8,7 +8,7 @@ export async function queryAnnouncement(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.QueryAnnouncementResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/announcement/list`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/announcement/list`,
     {
       method: "GET",
       params: {

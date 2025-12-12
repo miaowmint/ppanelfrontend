@@ -8,7 +8,7 @@ export async function getAuthMethodConfig(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.AuthMethodConfig }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/admin/auth-method/config`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/admin/auth-method/config`,
     {
       method: "GET",
       params: {
@@ -25,7 +25,7 @@ export async function updateAuthMethodConfig(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.AuthMethodConfig }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/admin/auth-method/config`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/admin/auth-method/config`,
     {
       method: "PUT",
       headers: {
@@ -40,7 +40,9 @@ export async function updateAuthMethodConfig(
 /** Get email support platform GET /v1/admin/auth-method/email_platform */
 export async function getEmailPlatform(options?: { [key: string]: any }) {
   return request<API.Response & { data?: API.PlatformResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/admin/auth-method/email_platform`,
+    `${
+      import.meta.env.VITE_API_PREFIX || ""
+    }/v1/admin/auth-method/email_platform`,
     {
       method: "GET",
       ...(options || {}),
@@ -51,7 +53,7 @@ export async function getEmailPlatform(options?: { [key: string]: any }) {
 /** Get auth method list GET /v1/admin/auth-method/list */
 export async function getAuthMethodList(options?: { [key: string]: any }) {
   return request<API.Response & { data?: API.GetAuthMethodListResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/admin/auth-method/list`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/admin/auth-method/list`,
     {
       method: "GET",
       ...(options || {}),
@@ -62,7 +64,9 @@ export async function getAuthMethodList(options?: { [key: string]: any }) {
 /** Get sms support platform GET /v1/admin/auth-method/sms_platform */
 export async function getSmsPlatform(options?: { [key: string]: any }) {
   return request<API.Response & { data?: API.PlatformResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/admin/auth-method/sms_platform`,
+    `${
+      import.meta.env.VITE_API_PREFIX || ""
+    }/v1/admin/auth-method/sms_platform`,
     {
       method: "GET",
       ...(options || {}),
@@ -76,7 +80,9 @@ export async function testEmailSend(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/admin/auth-method/test_email_send`,
+    `${
+      import.meta.env.VITE_API_PREFIX || ""
+    }/v1/admin/auth-method/test_email_send`,
     {
       method: "POST",
       headers: {
@@ -94,7 +100,9 @@ export async function testSmsSend(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/admin/auth-method/test_sms_send`,
+    `${
+      import.meta.env.VITE_API_PREFIX || ""
+    }/v1/admin/auth-method/test_sms_send`,
     {
       method: "POST",
       headers: {

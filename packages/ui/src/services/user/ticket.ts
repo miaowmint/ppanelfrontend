@@ -7,7 +7,7 @@ export async function updateUserTicketStatus(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/ticket/`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/ticket/`,
     {
       method: "PUT",
       headers: {
@@ -25,7 +25,7 @@ export async function createUserTicket(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/ticket/`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/ticket/`,
     {
       method: "POST",
       headers: {
@@ -44,7 +44,7 @@ export async function getUserTicketDetails(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.Ticket }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/ticket/detail`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/ticket/detail`,
     {
       method: "GET",
       params: {
@@ -61,7 +61,7 @@ export async function createUserTicketFollow(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/ticket/follow`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/ticket/follow`,
     {
       method: "POST",
       headers: {
@@ -80,7 +80,7 @@ export async function getUserTicketList(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.GetUserTicketListResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/ticket/list`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/ticket/list`,
     {
       method: "GET",
       params: {

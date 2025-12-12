@@ -7,7 +7,7 @@ export async function updateAds(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/admin/ads/`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/admin/ads/`,
     {
       method: "PUT",
       headers: {
@@ -25,7 +25,7 @@ export async function createAds(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/admin/ads/`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/admin/ads/`,
     {
       method: "POST",
       headers: {
@@ -43,7 +43,7 @@ export async function deleteAds(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/admin/ads/`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/admin/ads/`,
     {
       method: "DELETE",
       headers: {
@@ -62,7 +62,7 @@ export async function getAdsDetail(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.Ads }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/admin/ads/detail`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/admin/ads/detail`,
     {
       method: "GET",
       params: {
@@ -80,7 +80,7 @@ export async function getAdsList(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.GetAdsListResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/admin/ads/list`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/admin/ads/list`,
     {
       method: "GET",
       params: {

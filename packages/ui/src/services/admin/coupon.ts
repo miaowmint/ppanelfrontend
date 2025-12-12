@@ -7,7 +7,7 @@ export async function updateCoupon(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/admin/coupon/`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/admin/coupon/`,
     {
       method: "PUT",
       headers: {
@@ -25,7 +25,7 @@ export async function createCoupon(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/admin/coupon/`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/admin/coupon/`,
     {
       method: "POST",
       headers: {
@@ -43,7 +43,7 @@ export async function deleteCoupon(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/admin/coupon/`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/admin/coupon/`,
     {
       method: "DELETE",
       headers: {
@@ -61,7 +61,7 @@ export async function batchDeleteCoupon(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/admin/coupon/batch`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/admin/coupon/batch`,
     {
       method: "DELETE",
       headers: {
@@ -80,7 +80,7 @@ export async function getCouponList(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.GetCouponListResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/admin/coupon/list`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/admin/coupon/list`,
     {
       method: "GET",
       params: {

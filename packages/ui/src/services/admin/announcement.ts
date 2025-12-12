@@ -7,7 +7,7 @@ export async function updateAnnouncement(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/admin/announcement/`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/admin/announcement/`,
     {
       method: "PUT",
       headers: {
@@ -25,7 +25,7 @@ export async function createAnnouncement(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/admin/announcement/`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/admin/announcement/`,
     {
       method: "POST",
       headers: {
@@ -43,7 +43,7 @@ export async function deleteAnnouncement(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/admin/announcement/`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/admin/announcement/`,
     {
       method: "DELETE",
       headers: {
@@ -62,7 +62,7 @@ export async function getAnnouncement(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.Announcement }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/admin/announcement/detail`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/admin/announcement/detail`,
     {
       method: "GET",
       params: {
@@ -80,7 +80,7 @@ export async function getAnnouncementList(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.GetAnnouncementListResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/admin/announcement/list`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/admin/announcement/list`,
     {
       method: "GET",
       params: {

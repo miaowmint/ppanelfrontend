@@ -4,7 +4,7 @@ import request from "@workspace/ui/lib/request";
 /** Query User Affiliate Count GET /v1/public/user/affiliate/count */
 export async function queryUserAffiliate(options?: { [key: string]: any }) {
   return request<API.Response & { data?: API.QueryUserAffiliateCountResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/affiliate/count`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/affiliate/count`,
     {
       method: "GET",
       ...(options || {}),
@@ -19,7 +19,7 @@ export async function queryUserAffiliateList(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.QueryUserAffiliateListResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/affiliate/list`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/affiliate/list`,
     {
       method: "GET",
       params: {
@@ -33,7 +33,7 @@ export async function queryUserAffiliateList(
 /** Query User Balance Log GET /v1/public/user/balance_log */
 export async function queryUserBalanceLog(options?: { [key: string]: any }) {
   return request<API.Response & { data?: API.QueryUserBalanceLogListResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/balance_log`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/balance_log`,
     {
       method: "GET",
       ...(options || {}),
@@ -47,7 +47,7 @@ export async function updateBindEmail(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/bind_email`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/bind_email`,
     {
       method: "PUT",
       headers: {
@@ -65,7 +65,7 @@ export async function updateBindMobile(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/bind_mobile`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/bind_mobile`,
     {
       method: "PUT",
       headers: {
@@ -83,7 +83,7 @@ export async function bindOAuth(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.BindOAuthResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/bind_oauth`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/bind_oauth`,
     {
       method: "POST",
       headers: {
@@ -101,7 +101,9 @@ export async function bindOAuthCallback(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/bind_oauth/callback`,
+    `${
+      import.meta.env.VITE_API_PREFIX || ""
+    }/v1/public/user/bind_oauth/callback`,
     {
       method: "POST",
       headers: {
@@ -116,7 +118,7 @@ export async function bindOAuthCallback(
 /** Bind Telegram GET /v1/public/user/bind_telegram */
 export async function bindTelegram(options?: { [key: string]: any }) {
   return request<API.Response & { data?: API.BindTelegramResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/bind_telegram`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/bind_telegram`,
     {
       method: "GET",
       ...(options || {}),
@@ -132,7 +134,7 @@ export async function queryUserCommissionLog(
 ) {
   return request<
     API.Response & { data?: API.QueryUserCommissionLogListResponse }
-  >(`${import.meta.env.VITE_API_PREFIX}/v1/public/user/commission_log`, {
+  >(`${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/commission_log`, {
     method: "GET",
     params: {
       ...params,
@@ -147,7 +149,9 @@ export async function commissionWithdraw(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.WithdrawalLog }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/commission_withdraw`,
+    `${
+      import.meta.env.VITE_API_PREFIX || ""
+    }/v1/public/user/commission_withdraw`,
     {
       method: "POST",
       headers: {
@@ -162,7 +166,7 @@ export async function commissionWithdraw(
 /** Get Device List GET /v1/public/user/devices */
 export async function getDeviceList(options?: { [key: string]: any }) {
   return request<API.Response & { data?: API.GetDeviceListResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/devices`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/devices`,
     {
       method: "GET",
       ...(options || {}),
@@ -173,7 +177,7 @@ export async function getDeviceList(options?: { [key: string]: any }) {
 /** Query User Info GET /v1/public/user/info */
 export async function queryUserInfo(options?: { [key: string]: any }) {
   return request<API.Response & { data?: API.User }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/info`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/info`,
     {
       method: "GET",
       ...(options || {}),
@@ -188,7 +192,7 @@ export async function getLoginLog(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.GetLoginLogResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/login_log`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/login_log`,
     {
       method: "GET",
       params: {
@@ -205,7 +209,7 @@ export async function updateUserNotify(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/notify`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/notify`,
     {
       method: "PUT",
       headers: {
@@ -220,7 +224,7 @@ export async function updateUserNotify(
 /** Get OAuth Methods GET /v1/public/user/oauth_methods */
 export async function getOAuthMethods(options?: { [key: string]: any }) {
   return request<API.Response & { data?: API.GetOAuthMethodsResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/oauth_methods`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/oauth_methods`,
     {
       method: "GET",
       ...(options || {}),
@@ -234,7 +238,7 @@ export async function updateUserPassword(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/password`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/password`,
     {
       method: "PUT",
       headers: {
@@ -252,7 +256,7 @@ export async function updateUserRules(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/rules`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/rules`,
     {
       method: "PUT",
       headers: {
@@ -267,7 +271,7 @@ export async function updateUserRules(
 /** Query User Subscribe GET /v1/public/user/subscribe */
 export async function queryUserSubscribe(options?: { [key: string]: any }) {
   return request<API.Response & { data?: API.QueryUserSubscribeListResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/subscribe`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/subscribe`,
     {
       method: "GET",
       ...(options || {}),
@@ -282,7 +286,7 @@ export async function getSubscribeLog(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.GetSubscribeLogResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/subscribe_log`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/subscribe_log`,
     {
       method: "GET",
       params: {
@@ -299,7 +303,7 @@ export async function updateUserSubscribeNote(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/subscribe_note`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/subscribe_note`,
     {
       method: "PUT",
       headers: {
@@ -317,7 +321,7 @@ export async function resetUserSubscribeToken(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/subscribe_token`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/subscribe_token`,
     {
       method: "PUT",
       headers: {
@@ -335,7 +339,7 @@ export async function unbindDevice(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/unbind_device`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/unbind_device`,
     {
       method: "PUT",
       headers: {
@@ -353,7 +357,7 @@ export async function unbindOAuth(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/unbind_oauth`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/unbind_oauth`,
     {
       method: "POST",
       headers: {
@@ -368,7 +372,7 @@ export async function unbindOAuth(
 /** Unbind Telegram POST /v1/public/user/unbind_telegram */
 export async function unbindTelegram(options?: { [key: string]: any }) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/unbind_telegram`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/unbind_telegram`,
     {
       method: "POST",
       ...(options || {}),
@@ -382,7 +386,7 @@ export async function unsubscribe(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/unsubscribe`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/unsubscribe`,
     {
       method: "POST",
       headers: {
@@ -400,7 +404,7 @@ export async function preUnsubscribe(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.PreUnsubscribeResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/unsubscribe/pre`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/unsubscribe/pre`,
     {
       method: "POST",
       headers: {
@@ -418,7 +422,7 @@ export async function verifyEmail(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/verify_email`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/verify_email`,
     {
       method: "POST",
       headers: {
@@ -437,7 +441,7 @@ export async function queryWithdrawalLog(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.QueryWithdrawalLogListResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/user/withdrawal_log`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/user/withdrawal_log`,
     {
       method: "GET",
       params: {

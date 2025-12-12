@@ -8,7 +8,7 @@ export async function queryDocumentDetail(
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: API.Document }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/document/detail`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/document/detail`,
     {
       method: "GET",
       params: {
@@ -22,7 +22,7 @@ export async function queryDocumentDetail(
 /** Get document list GET /v1/public/document/list */
 export async function queryDocumentList(options?: { [key: string]: any }) {
   return request<API.Response & { data?: API.QueryDocumentListResponse }>(
-    `${import.meta.env.VITE_API_PREFIX}/v1/public/document/list`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/public/document/list`,
     {
       method: "GET",
       ...(options || {}),
