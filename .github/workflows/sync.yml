@@ -5,7 +5,7 @@ permissions:
 
 on:
   schedule:
-    - cron: "0 0 * * *" # 每天国际标准时间0点（北京时间早上8点）执行一次
+    - cron: "0 */3 * * *" # 每天国际标准时间0点（北京时间早上8点）执行一次
   workflow_dispatch: # 允许你手动点击按钮触发
 
 jobs:
