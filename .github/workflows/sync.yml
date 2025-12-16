@@ -1,0 +1,38 @@
+name: 自动同步上游仓库
+
+permissions:
+  contents: write
+
+on:
+  schedule:
+    - cron: "0 0 * * *" # 每天国际标准时间0点（北京时间早上8点）执行一次
+  workflow_dispatch: # 允许你手动点击按钮触发
+
+jobs:
+  sync_with_upstream:
+    name: Sync with Upstream
+    runs-on: ubuntu-latest
+    if: ${{ github.event.repository.fork }} # 只有是 Fork 的仓库才执行
+
+    steps:
+      - name: Checkout target repo
+        uses: actions/checkout@v3
+
+      - name: Sync Upstream
+        uses: aormsby/Fork-Sync-With-Upstream-action@v3.4
+        with:
+          # 👇👇👇 注意！这里必须改成上游仓库的名字！👇👇👇
+          # 格式是：原作者用户名/原仓库名
+          # 比如上游是 https://github.com/torvalds/linux，这里就填 torvalds/linux
+          upstream_sync_repo: perfect-panel/frontend 
+          
+          upstream_sync_branch: main    # 上游主分支名，通常是 main 或 master
+          target_sync_branch: main      # 你仓库的主分支名，通常是 main 或 master
+          target_repo_token: ${{ secrets.GITHUB_TOKEN }} # 自动生成的令牌，不用改
+          test_mode: false
+
+      - name: Check for Failure
+        if: failure()
+        run: |
+          echo "[Error] 由于上游仓库有变动导致冲突，同步失败，请手动解决。"
+          exit 1
