@@ -44,7 +44,13 @@ export default function Renewal({ id, subscribe }: Readonly<RenewalProps>) {
 
   const { data: order } = useQuery({
     enabled: !!subscribe.id && open,
-    queryKey: ["preCreateOrder", params],
+    queryKey: [
+      "preCreateOrder",
+      subscribe.id,
+      params.quantity,
+      params.payment,
+      params.coupon,
+    ],
     queryFn: async () => {
       try {
         const { data } = await preCreateOrder({

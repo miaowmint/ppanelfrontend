@@ -45,7 +45,13 @@ export default function Purchase({
 
   const { data: order } = useQuery({
     enabled: !!subscribe?.id,
-    queryKey: ["preCreateOrder", params],
+    queryKey: [
+      "preCreateOrder",
+      subscribe?.id,
+      params.quantity,
+      params.payment,
+      params.coupon,
+    ],
     queryFn: async () => {
       try {
         const { data } = await preCreateOrder({
