@@ -17,7 +17,7 @@ import {
   deleteUserSubscribe,
   getUserSubscribe,
   resetUserSubscribeToken,
-  stopUserSubscribe,
+  toggleUserSubscribeStatus,
   updateUserSubscribe,
 } from "@workspace/ui/services/admin/user";
 import { useRef, useState } from "react";
@@ -99,22 +99,43 @@ export default function UserSubscription({ userId }: { userId: number }) {
           <ConfirmButton
             cancelText={t("cancel", "Cancel")}
             confirmText={t("confirm", "Confirm")}
-            description={t(
-              "stopSubscribeDescription",
-              "This will stop the subscription temporarily. User will not be able to use it."
-            )}
-            key="stop"
+            description={
+              row.status === 5
+                ? t(
+                    "resumeSubscribeDescription",
+                    "This will resume the subscription and allow the user to use it."
+                  )
+                : t(
+                    "stopSubscribeDescription",
+                    "This will stop the subscription temporarily. User will not be able to use it."
+                  )
+            }
+            key="toggle"
             onConfirm={async () => {
-              await stopUserSubscribe({ user_subscribe_id: row.id });
+              await toggleUserSubscribeStatus({ user_subscribe_id: row.id });
               toast.success(
-                t("stopSubscribeSuccess", "Subscription stopped successfully")
+                row.status === 5
+                  ? t(
+                      "resumeSubscribeSuccess",
+                      "Subscription resumed successfully"
+                    )
+                  : t(
+                      "stopSubscribeSuccess",
+                      "Subscription stopped successfully"
+                    )
               );
               ref.current?.refresh();
             }}
-            title={t("confirmStopSubscribe", "Confirm Stop Subscription")}
+            title={
+              row.status === 5
+                ? t("confirmResumeSubscribe", "Confirm Resume Subscription")
+                : t("confirmStopSubscribe", "Confirm Stop Subscription")
+            }
             trigger={
               <Button variant="secondary">
-                {t("stopSubscribe", "Stop Subscription")}
+                {row.status === 5
+                  ? t("resumeSubscribe", "Resume Subscription")
+                  : t("stopSubscribe", "Stop Subscription")}
               </Button>
             }
           />,

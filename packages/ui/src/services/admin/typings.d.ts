@@ -2004,10 +2004,6 @@ declare namespace API {
     id: number;
   };
 
-  type StopUserSubscribeRequest = {
-    user_subscribe_id: number;
-  };
-
   type StripePayment = {
     method: string;
     client_secret: string;
@@ -2165,6 +2161,10 @@ declare namespace API {
   type ToggleNodeStatusRequest = {
     id: number;
     enable: boolean;
+  };
+
+  type ToggleUserSubscribeStatusRequest = {
+    user_subscribe_id: number;
   };
 
   type TosConfig = {

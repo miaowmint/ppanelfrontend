@@ -465,13 +465,13 @@ export async function resetUserSubscribeTraffic(
   );
 }
 
-/** Stop user subscribe POST /v1/admin/user/subscribe/stop */
-export async function stopUserSubscribe(
-  body: API.StopUserSubscribeRequest,
+/** Stop user subscribe POST /v1/admin/user/subscribe/toggle */
+export async function toggleUserSubscribeStatus(
+  body: API.ToggleUserSubscribeStatusRequest,
   options?: { [key: string]: any }
 ) {
   return request<API.Response & { data?: any }>(
-    `${import.meta.env.VITE_API_PREFIX || ""}/v1/admin/user/subscribe/stop`,
+    `${import.meta.env.VITE_API_PREFIX || ""}/v1/admin/user/subscribe/toggle`,
     {
       method: "POST",
       headers: {
