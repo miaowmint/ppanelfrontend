@@ -9,7 +9,7 @@ import {
 } from "@workspace/ui/components/popover";
 import { cn } from "@workspace/ui/lib/utils";
 import { intlFormat } from "date-fns";
-import { CalendarIcon } from "lucide-react";
+import { CalendarIcon, X } from "lucide-react";
 import * as React from "react";
 import type { DayPicker } from "react-day-picker";
 
@@ -45,7 +45,21 @@ export function DatePicker({
           variant="outline"
         >
           {value ? intlFormat(value) : <span>{placeholder}</span>}
-          <CalendarIcon className="size-4" />
+          <div className="flex items-center gap-2">
+            {value && (
+              <X
+                className="size-4 opacity-50 hover:opacity-100"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setDate(undefined);
+                  if (onChange) {
+                    onChange(0);
+                  }
+                }}
+              />
+            )}
+            <CalendarIcon className="size-4" />
+          </div>
         </Button>
       </PopoverTrigger>
       <PopoverContent align="start" className="w-auto p-0">

@@ -218,14 +218,14 @@ export function SubscriptionForm({
                     <FormControl>
                       <DatePicker
                         onChange={(value: number | null | undefined) => {
-                          if (value === field.value) {
-                            form.setValue(field.name, 0);
-                          } else {
-                            form.setValue(field.name, value!);
-                          }
+                          form.setValue(field.name, value || 0);
                         }}
                         placeholder={t("permanent", "Permanent")}
-                        value={field.value ?? undefined}
+                        value={
+                          field.value && field.value > 0
+                            ? field.value
+                            : undefined
+                        }
                       />
                     </FormControl>
                     <FormMessage />
