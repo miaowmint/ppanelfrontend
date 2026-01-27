@@ -316,6 +316,7 @@ function ProfileSheet({
   const refetchAll = async () => {
     await refetch();
     onUpdated?.();
+    return Promise.resolve();
   };
   return (
     <Sheet onOpenChange={setOpen} open={open}>

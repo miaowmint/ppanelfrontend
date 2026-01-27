@@ -34,7 +34,7 @@ export function NotifySettingsForm({
   refetch,
 }: {
   user: API.User;
-  refetch: () => void | Promise<unknown>;
+  refetch: () => Promise<unknown>;
 }) {
   const { t } = useTranslation("user");
 
