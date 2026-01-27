@@ -19,6 +19,21 @@ This document records all notable changes to ShadCN Admin.
 ---
 
 
+## [1.2.4-dev.2](https://github.com/perfect-panel/frontend/compare/v1.2.4-dev.1...v1.2.4-dev.2) (2026-01-27)
+
+### 🐛 Bug Fixes / 问题修复
+
+* **admin:** refresh user list after balance update ([7e1d574](https://github.com/perfect-panel/frontend/commit/7e1d5746d46dd9bf33b1971f71f809afcdba4bbe))
+* **ci:** avoid void|Promise union for refetch ([6dd743b](https://github.com/perfect-panel/frontend/commit/6dd743bbf4f383249e97549ed0ed0417b6f5609d))
+
+### 📚 Documentation / 文档更新
+
+* Add one-click installation script for PPanel with Docker support ([912c5c4](https://github.com/perfect-panel/frontend/commit/912c5c4cb63eeb0ecbc33bef6b31bd50d83d6491))
+
+### 🔧 Chores / 其他变更
+
+* **openapi:** regenerate services & patch axios requestType typing ([0ec4f84](https://github.com/perfect-panel/frontend/commit/0ec4f84fa9d4d94048b8219896c3d8fb1d8d2175))
+
 ## [1.2.4-dev.1](https://github.com/perfect-panel/frontend/compare/v1.2.3...v1.2.4-dev.1) (2025-12-22)
 
 ### 🐛 Bug Fixes / 问题修复
