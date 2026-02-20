@@ -278,7 +278,18 @@ export default function Nodes() {
           size: pagination.size,
           search: filter?.search || undefined,
         });
-        const list = (data?.data?.list || []) as API.Node[];
+        const rawList = (data?.data?.list || []) as API.Node[];
+        // Backend should ideally return nodes already sorted, but we also sort on the
+        // frontend to keep the UI stable (and avoid "random" order after refresh).
+        const list = rawList.slice().sort((a, b) => {
+          const as = a.sort;
+          const bs = b.sort;
+          const an = typeof as === "number" ? as : Number.POSITIVE_INFINITY;
+          const bn = typeof bs === "number" ? bs : Number.POSITIVE_INFINITY;
+          if (an !== bn) return an - bn;
+          // Tie-breaker to keep a stable order.
+          return Number(a.id) - Number(b.id);
+        });
         const total = Number(data?.data?.total || list.length);
         return { list, total };
       }}
