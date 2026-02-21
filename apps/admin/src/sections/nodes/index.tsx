@@ -227,8 +227,7 @@ export default function Nodes() {
       }}
       onSort={async (source, target, items) => {
         // NOTE: `items` is the current page's items from ProTable.
-        // We should avoid mutating it in-place, and we should persist the sort
-        // changes reliably (await the API call).
+        // Avoid mutating it in-place, and persist sort changes reliably.
         const sourceIndex = items.findIndex(
           (item) => String(item.id) === source
         );
@@ -239,19 +238,27 @@ export default function Nodes() {
         if (sourceIndex === -1 || targetIndex === -1) return items;
 
         const prevSortById = new Map(items.map((it) => [it.id, it.sort]));
-        const originalSorts = items.map((item) => item.sort);
 
         const next = items.slice();
         const [movedItem] = next.splice(sourceIndex, 1);
         next.splice(targetIndex, 0, movedItem!);
 
-        // Keep the existing `sort` values bound to positions (so reordering swaps
-        // sort values instead of inventing new ones).
-        const updatedItems = next.map((item, index) => {
-          const originalSort = originalSorts[index];
-          const newSort = originalSort !== undefined ? originalSort : item.sort;
-          return { ...item, sort: newSort };
-        });
+        // IMPORTANT:
+        // Some installations have duplicate / empty `sort` values (commonly 0 or null)
+        // which makes the order appear "random" after refresh and also makes
+        // "swap sort values" strategies a no-op.
+        //
+        // To make the ordering stable, we re-index the current page to a strictly
+        // increasing sequence.
+        const numericSorts = items
+          .map((it) => (typeof it.sort === "number" ? it.sort : Number.NaN))
+          .filter((v) => Number.isFinite(v)) as number[];
+        const baseSort = numericSorts.length ? Math.min(...numericSorts) : 0;
+
+        const updatedItems = next.map((item, index) => ({
+          ...item,
+          sort: baseSort + index,
+        }));
 
         const changedItems = updatedItems.filter(
           (item) => item.sort !== prevSortById.get(item.id)
@@ -259,8 +266,7 @@ export default function Nodes() {
 
         if (changedItems.length > 0) {
           await resetSortWithNode({
-            // Send all changed rows (within the current page) so backend can
-            // persist the new ordering.
+            // Send all changed rows (within the current page) so backend can persist.
             sort: changedItems.map((item) => ({
               id: item.id,
               sort: item.sort,
