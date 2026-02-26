@@ -19,6 +19,12 @@ This document records all notable changes to ShadCN Admin.
 ---
 
 
+## [1.3.12](https://github.com/perfect-panel/frontend/compare/v1.3.11...v1.3.12) (2026-02-26)
+
+### 🐛 Bug Fixes / 问题修复
+
+* **admin:** prioritize follow-up tickets ([#18](https://github.com/perfect-panel/frontend/issues/18)) ([a07d1ca](https://github.com/perfect-panel/frontend/commit/a07d1ca48e6471077f2ec86e55e967c7d1aa8acd))
+
 ## [1.3.11](https://github.com/perfect-panel/frontend/compare/v1.3.10...v1.3.11) (2026-02-21)
 
 ### 🐛 Bug Fixes / 问题修复
