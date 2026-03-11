@@ -19,6 +19,12 @@ This document records all notable changes to ShadCN Admin.
 ---
 
 
+## [1.3.14](https://github.com/perfect-panel/frontend/compare/v1.3.13...v1.3.14) (2026-03-11)
+
+### 🐛 Bug Fixes / 问题修复
+
+* improve renewal button readability on subscription card ([#25](https://github.com/perfect-panel/frontend/issues/25)) ([ced5c1d](https://github.com/perfect-panel/frontend/commit/ced5c1d24e5af26ff8fdf700fd2b9b864706694a))
+
 ## [1.3.13](https://github.com/perfect-panel/frontend/compare/v1.3.12...v1.3.13) (2026-03-07)
 
 ### 🐛 Bug Fixes / 问题修复
