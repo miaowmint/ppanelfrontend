@@ -70,10 +70,15 @@ const buildSchema = (t: TFunction) =>
       .int()
       .min(1, t("errors.portRange", "Port must be between 1 and 65535"))
       .max(65_535, t("errors.portRange", "Port must be between 1 and 65535")),
-    tags: z.array(z.string()),
+    tags: z.preprocess((v) => (Array.isArray(v) ? v : []), z.array(z.string())),
   });
 
 export type NodeFormValues = z.infer<ReturnType<typeof buildSchema>>;
+
+function normalizeValues(v?: Partial<NodeFormValues>): Partial<NodeFormValues> {
+  if (!v) return {};
+  return { ...v, tags: Array.isArray(v.tags) ? v.tags : [] };
+}
 
 export default function NodeForm(props: {
   trigger: string;
@@ -112,7 +117,7 @@ export default function NodeForm(props: {
       address: "",
       port: 0,
       tags: [],
-      ...initialValues,
+      ...normalizeValues(initialValues),
     },
   });
 
@@ -134,7 +139,7 @@ export default function NodeForm(props: {
         address: "",
         port: 0,
         tags: [],
-        ...initialValues,
+        ...normalizeValues(initialValues),
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
