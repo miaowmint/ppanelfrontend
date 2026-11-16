@@ -24,6 +24,8 @@
     "description": "Manage subscription system settings",
     "singleSubscriptionMode": "Single Subscription Mode",
     "singleSubscriptionModeDescription": "Limit users to one active subscription. Existing subscriptions unaffected",
+    "showTutorial": "Show Tutorial Section",
+    "showTutorialDescription": "Show the client tutorial section on the user document page",
     "subscriptionDomain": "Subscription Domain",
     "subscriptionDomainDescription": "Custom domain for subscription links",
     "subscriptionDomainPlaceholder": "Enter subscription domain, one per line",
@@ -69,7 +71,8 @@
         "subscribeName": "subscription name",
         "title": "Go Template Syntax",
         "userInfo": "user info (traffic, expiry, etc.)",
-        "variables": "Available variables:"
+        "variables": "Available variables:",
+        "nowhereKey": "NW3 shared key; other protocols continue to use .UserInfo.Password"
       },
       "userAgentPrefix": "Client identifier for distinguishing different clients"
     },

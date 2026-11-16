@@ -1,0 +1,1052 @@
+{
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "HTTP API for PPanel's Hertz server. Application errors are returned in the response code and message fields.",
+        "title": "PPanel API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "paths": {
+        "/v1/server/alivelist": {
+            "get": {
+                "security": [
+                    {
+                        "NodeSecret": []
+                    }
+                ],
+                "produces": [
+                    "application/json",
+                    "application/protobuf"
+                ],
+                "tags": [
+                    "node"
+                ],
+                "summary": "Get online device counts",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "protocol",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "secret_key",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "server_id",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dto.GetServerAliveListResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/server/config": {
+            "get": {
+                "security": [
+                    {
+                        "NodeSecret": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/protobuf"
+                ],
+                "tags": [
+                    "node"
+                ],
+                "summary": "Get server config",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "protocol",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "secret_key",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "server_id",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dto.GetServerConfigResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/server/device": {
+            "post": {
+                "security": [
+                    {
+                        "NodeSecret": []
+                    }
+                ],
+                "consumes": [
+                    "application/json",
+                    "application/protobuf"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/protobuf"
+                ],
+                "tags": [
+                    "node"
+                ],
+                "summary": "Claim an online device slot",
+                "parameters": [
+                    {
+                        "description": "Device claim",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.ClaimServerDeviceRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ClaimServerDeviceResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/server/online": {
+            "post": {
+                "security": [
+                    {
+                        "NodeSecret": []
+                    }
+                ],
+                "consumes": [
+                    "application/json",
+                    "application/protobuf"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/protobuf"
+                ],
+                "tags": [
+                    "node"
+                ],
+                "summary": "Push online users",
+                "parameters": [
+                    {
+                        "description": "Request parameters",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.OnlineUsersRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.ResponseSuccessBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/server/push": {
+            "post": {
+                "security": [
+                    {
+                        "NodeSecret": []
+                    }
+                ],
+                "consumes": [
+                    "application/json",
+                    "application/protobuf"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/protobuf"
+                ],
+                "tags": [
+                    "node"
+                ],
+                "summary": "Push user Traffic",
+                "parameters": [
+                    {
+                        "description": "Request parameters",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.ServerPushUserTrafficRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.ResponseSuccessBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/server/status": {
+            "post": {
+                "security": [
+                    {
+                        "NodeSecret": []
+                    }
+                ],
+                "consumes": [
+                    "application/json",
+                    "application/protobuf"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/protobuf"
+                ],
+                "tags": [
+                    "node"
+                ],
+                "summary": "Push server status",
+                "parameters": [
+                    {
+                        "description": "Request parameters",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.ServerPushStatusRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/result.ResponseSuccessBean"
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/server/user": {
+            "get": {
+                "security": [
+                    {
+                        "NodeSecret": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json",
+                    "application/protobuf"
+                ],
+                "tags": [
+                    "node"
+                ],
+                "summary": "Get user list",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "name": "protocol",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "secret_key",
+                        "in": "query"
+                    },
+                    {
+                        "type": "integer",
+                        "name": "server_id",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/dto.GetServerUserListResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/v2/server/{server_id}": {
+            "get": {
+                "security": [
+                    {
+                        "NodeSecret": []
+                    }
+                ],
+                "produces": [
+                    "application/json",
+                    "application/protobuf"
+                ],
+                "tags": [
+                    "node"
+                ],
+                "summary": "Get Server Protocol Config",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Server ID",
+                        "name": "server_id",
+                        "in": "path",
+                        "required": true
+                    },
+                    {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "collectionFormat": "multi",
+                        "description": "Protocols to include",
+                        "name": "protocols",
+                        "in": "query"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/result.ResponseSuccessBean"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/dto.QueryServerConfigResponse"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "dto.ClaimServerDeviceRequest": {
+            "type": "object",
+            "required": [
+                "ip",
+                "uid"
+            ],
+            "properties": {
+                "ip": {
+                    "type": "string"
+                },
+                "protocol": {
+                    "type": "string"
+                },
+                "secret_key": {
+                    "type": "string"
+                },
+                "server_id": {
+                    "type": "integer"
+                },
+                "uid": {
+                    "type": "integer"
+                }
+            }
+        },
+        "dto.ClaimServerDeviceResponse": {
+            "type": "object",
+            "properties": {
+                "allowed": {
+                    "type": "boolean"
+                },
+                "ttl_seconds": {
+                    "type": "integer"
+                }
+            }
+        },
+        "dto.GetServerAliveListResponse": {
+            "type": "object",
+            "properties": {
+                "alive": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                }
+            }
+        },
+        "dto.GetServerConfigResponse": {
+            "type": "object",
+            "properties": {
+                "basic": {
+                    "$ref": "#/definitions/dto.ServerBasic"
+                },
+                "config": {},
+                "protocol": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.GetServerUserListResponse": {
+            "type": "object",
+            "properties": {
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.ServerUser"
+                    }
+                }
+            }
+        },
+        "dto.NodeDNS": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "domains": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "proto": {
+                    "type": "string"
+                },
+                "server_name": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.NodeOutbound": {
+            "type": "object",
+            "properties": {
+                "address": {
+                    "type": "string"
+                },
+                "allow_insecure": {
+                    "type": "boolean"
+                },
+                "alpn": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "cipher": {
+                    "type": "string"
+                },
+                "congestion_controller": {
+                    "type": "string"
+                },
+                "encryption": {
+                    "type": "string"
+                },
+                "encryption_client_padding": {
+                    "type": "string"
+                },
+                "encryption_mode": {
+                    "type": "string"
+                },
+                "encryption_password": {
+                    "type": "string"
+                },
+                "encryption_rtt": {
+                    "type": "string"
+                },
+                "encryption_ticket": {
+                    "type": "string"
+                },
+                "fingerprint": {
+                    "type": "string"
+                },
+                "flow": {
+                    "type": "string"
+                },
+                "heartbeat": {
+                    "type": "integer"
+                },
+                "host": {
+                    "type": "string"
+                },
+                "multiplex": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "path": {
+                    "type": "string"
+                },
+                "plugin": {
+                    "type": "string"
+                },
+                "plugin_opts": {},
+                "port": {
+                    "type": "integer"
+                },
+                "protocol": {
+                    "type": "string"
+                },
+                "reality_public_key": {
+                    "type": "string"
+                },
+                "reality_short_id": {
+                    "type": "string"
+                },
+                "reduce_rtt": {
+                    "type": "boolean"
+                },
+                "rules": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "security": {
+                    "type": "string"
+                },
+                "service_name": {
+                    "type": "string"
+                },
+                "settings": {
+                    "type": "string"
+                },
+                "sni": {
+                    "type": "string"
+                },
+                "spider_x": {
+                    "type": "string"
+                },
+                "stream_settings": {
+                    "type": "string"
+                },
+                "transport": {
+                    "type": "string"
+                },
+                "udp_stream": {
+                    "type": "boolean"
+                },
+                "uot": {
+                    "type": "boolean"
+                },
+                "uot_version": {
+                    "type": "integer"
+                },
+                "user": {
+                    "type": "string"
+                },
+                "uuid": {
+                    "type": "string"
+                },
+                "xhttp_extra": {
+                    "type": "string"
+                },
+                "xhttp_mode": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.OnlineUser": {
+            "type": "object",
+            "properties": {
+                "ip": {
+                    "type": "string"
+                },
+                "uid": {
+                    "type": "integer"
+                }
+            }
+        },
+        "dto.OnlineUsersRequest": {
+            "type": "object",
+            "properties": {
+                "protocol": {
+                    "type": "string"
+                },
+                "secret_key": {
+                    "type": "string"
+                },
+                "server_id": {
+                    "type": "integer"
+                },
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.OnlineUser"
+                    }
+                }
+            }
+        },
+        "dto.Protocol": {
+            "type": "object",
+            "properties": {
+                "accept_proxy_protocol": {
+                    "description": "Listener compatibility: whether to accept the PROXY protocol; node inbounds do not all enable it yet.",
+                    "type": "boolean"
+                },
+                "allow_insecure": {
+                    "description": "TLS client compatibility: allows skipping certificate verification; inbound configurations usually ignore it, and it is not a server certificate setting.",
+                    "type": "boolean"
+                },
+                "alpn": {
+                    "description": "TLS/HTTP/QUIC protocols: the TLS ALPN list; Nowhere requires exactly nw3.",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "cert_dns_env": {
+                    "description": "TLS protocols: the environment variables (credentials) passed to the DNS provider with cert_mode=dns.",
+                    "type": "string"
+                },
+                "cert_dns_provider": {
+                    "description": "TLS protocols: the DNS provider used with cert_mode=dns.",
+                    "type": "string"
+                },
+                "cert_mode": {
+                    "description": "TLS protocols: the certificate source, file, self, http or dns; none configures no certificate.",
+                    "type": "string"
+                },
+                "cipher": {
+                    "description": "Shadowsocks/SSR: the Shadowsocks method or the SSR cipher.",
+                    "type": "string"
+                },
+                "congestion_controller": {
+                    "description": "QUIC protocols: TUIC's congestion control field, and the legacy alias of Naive's.",
+                    "type": "string"
+                },
+                "disable_sni": {
+                    "description": "TLS client compatibility: disables SNI; server inbounds currently ignore it.",
+                    "type": "boolean"
+                },
+                "down_mbps": {
+                    "description": "Hysteria2 only: the server's download bandwidth in Mbps.",
+                    "type": "integer"
+                },
+                "ech_enable": {
+                    "description": "Subscription clients: whether Encrypted ClientHello is enabled; left out of the configuration distributed to the nodes.",
+                    "type": "boolean"
+                },
+                "ech_server_name": {
+                    "description": "Subscription clients: the outer ECH server name; left out of the configuration distributed to the nodes.",
+                    "type": "string"
+                },
+                "enable": {
+                    "description": "Common: whether the inbound protocol is enabled.",
+                    "type": "boolean"
+                },
+                "encryption": {
+                    "description": "VLESS Encryption only: the cipher suite, such as none or mlkem768x25519plus.",
+                    "type": "string"
+                },
+                "encryption_client_padding": {
+                    "description": "VLESS Encryption client information: the padding rules of the client direction, for the subscription output.",
+                    "type": "string"
+                },
+                "encryption_mode": {
+                    "description": "VLESS Encryption only: the key encapsulation mode, such as native, xorpub or random.",
+                    "type": "string"
+                },
+                "encryption_password": {
+                    "description": "VLESS Encryption client information: the 1-RTT (derived) authentication password, for the subscription output.",
+                    "type": "string"
+                },
+                "encryption_private_key": {
+                    "description": "VLESS Encryption, server side only: the ML-KEM/X25519 private key material.",
+                    "type": "string"
+                },
+                "encryption_rtt": {
+                    "description": "VLESS Encryption only: the handshake round-trip mode, 0rtt or 1rtt.",
+                    "type": "string"
+                },
+                "encryption_server_padding": {
+                    "description": "VLESS Encryption, server side only: the padding rules of the server direction.",
+                    "type": "string"
+                },
+                "encryption_ticket": {
+                    "description": "VLESS Encryption, server side only: the 0-RTT ticket.",
+                    "type": "string"
+                },
+                "fingerprint": {
+                    "description": "TLS client compatibility: the uTLS fingerprint; node inbounds currently ignore it, it is kept only for outbound and legacy configurations.",
+                    "type": "string"
+                },
+                "flow": {
+                    "description": "VLESS only: the XTLS Vision flow control; xtls-rprx-vision is currently the only valid value.",
+                    "type": "string"
+                },
+                "heartbeat": {
+                    "description": "TUIC only: the connection heartbeat interval in seconds; 0 uses the node's default.",
+                    "type": "integer"
+                },
+                "hop_interval": {
+                    "description": "Hysteria2/TUIC-style QUIC protocols: the port hopping interval; node inbounds do not enable port hopping yet.",
+                    "type": "integer"
+                },
+                "hop_ports": {
+                    "description": "Hysteria2/TUIC-style QUIC protocols: the port hopping range; node inbounds do not enable port hopping yet.",
+                    "type": "string"
+                },
+                "host": {
+                    "description": "VLESS/VMess/Trojan transport: the Host of WebSocket, HTTPUpgrade or XHTTP.",
+                    "type": "string"
+                },
+                "mode": {
+                    "description": "Snell only: the Snell v6 mode; other protocols leave it unset.",
+                    "type": "string"
+                },
+                "multiplex": {
+                    "description": "Protocol-independent capability: the multiplexing level (off, low, medium or high), for the stream protocols that support mux.",
+                    "type": "string"
+                },
+                "network": {
+                    "description": "Listening network: tcp, udp or both; Nowhere normalizes it to mix, tcp or udp, and the other protocols check it against what each supports.",
+                    "type": "string"
+                },
+                "obfs": {
+                    "description": "Obfuscating protocols: Hysteria2's Salamander, Snell v5's obfs, SSR's obfs method, or Nowhere's morph (default) / none.",
+                    "type": "string"
+                },
+                "obfs_host": {
+                    "description": "Legacy obfuscation compatibility: the obfuscation Host; node inbounds currently ignore it, and Shadowsocks plugins take plugin_opts instead.",
+                    "type": "string"
+                },
+                "obfs_param": {
+                    "description": "SSR only: the SSR obfs_param.",
+                    "type": "string"
+                },
+                "obfs_password": {
+                    "description": "Hysteria2 only: the Salamander obfuscation password, used only with obfs=salamander.",
+                    "type": "string"
+                },
+                "obfs_path": {
+                    "description": "Legacy obfuscation compatibility: the obfuscation request path; node inbounds currently ignore it, and Shadowsocks plugins take plugin_opts instead.",
+                    "type": "string"
+                },
+                "padding_scheme": {
+                    "description": "AnyTLS only: the TLS record padding scheme.",
+                    "type": "string"
+                },
+                "path": {
+                    "description": "VLESS/VMess/Trojan transport: the request path of WebSocket, HTTPUpgrade or XHTTP.",
+                    "type": "string"
+                },
+                "plugin": {
+                    "description": "Shadowsocks (AEAD/2022) only: the inbound plugin, such as obfs, v2ray-plugin, shadow-tls or restls.",
+                    "type": "string"
+                },
+                "plugin_opts": {
+                    "description": "Shadowsocks (AEAD/2022) only: the structured options of the selected inbound plugin."
+                },
+                "port": {
+                    "description": "Common: the inbound listening port.",
+                    "type": "integer"
+                },
+                "protocol": {
+                    "description": "SSR only: the SSR protocol method, under the JSON name protocol, which is not the top-level type.",
+                    "type": "string"
+                },
+                "protocol_param": {
+                    "description": "SSR only: the SSR protocol_param.",
+                    "type": "string"
+                },
+                "quic_congestion_control": {
+                    "description": "QUIC protocols: Naive's congestion control field, and the compatibility alias of TUIC's.",
+                    "type": "string"
+                },
+                "ratio": {
+                    "description": "Panel: the traffic billing ratio, 1 by default; not part of the protocol handshake.",
+                    "type": "number"
+                },
+                "reality_private_key": {
+                    "description": "VLESS/VMess REALITY, server side only: the server's X25519 private key.",
+                    "type": "string"
+                },
+                "reality_public_key": {
+                    "description": "VLESS/VMess REALITY client information: the public key of the private key, mainly for the subscription output.",
+                    "type": "string"
+                },
+                "reality_server_addr": {
+                    "description": "VLESS/VMess REALITY only: the address the REALITY handshake is forwarded to.",
+                    "type": "string"
+                },
+                "reality_server_port": {
+                    "description": "VLESS/VMess REALITY only: the port the REALITY handshake is forwarded to.",
+                    "type": "integer"
+                },
+                "reality_short_id": {
+                    "description": "VLESS/VMess REALITY only: the short ID clients may use.",
+                    "type": "string"
+                },
+                "reduce_rtt": {
+                    "description": "TUIC only: enables QUIC 0-RTT to save round trips on the first handshake.",
+                    "type": "boolean"
+                },
+                "security": {
+                    "description": "TLS/REALITY protocols: none, tls or reality; each protocol limits the values it accepts.",
+                    "type": "string"
+                },
+                "server_key": {
+                    "description": "Key-based protocols: the Shadowsocks 2022 server key, the SSR password or the Snell PSK.",
+                    "type": "string"
+                },
+                "service_name": {
+                    "description": "VLESS/VMess/Trojan gRPC transport only: the gRPC service name.",
+                    "type": "string"
+                },
+                "sni": {
+                    "description": "TLS protocols: the certificate domain and the TLS server name; REALITY also uses it as the server name.",
+                    "type": "string"
+                },
+                "traffic_pattern": {
+                    "description": "Mieru only: the traffic pattern (packet length distribution) settings.",
+                    "type": "string"
+                },
+                "transport": {
+                    "description": "VLESS/VMess/Trojan transport: tcp, ws, httpupgrade, grpc or xhttp.",
+                    "type": "string"
+                },
+                "type": {
+                    "description": "Common: the protocol type, such as shadowsocks, vless, vmess, hysteria2, tuic or nowhere.",
+                    "type": "string"
+                },
+                "udp_relay_mode": {
+                    "description": "TUIC/Hysteria compatibility: the UDP relay mode of the former implementation; node inbounds currently ignore it.",
+                    "type": "string"
+                },
+                "uot": {
+                    "description": "Protocol-independent capability: UDP over TCP, for every protocol that supports UoT rather than one in particular.",
+                    "type": "boolean"
+                },
+                "uot_version": {
+                    "description": "Protocol-independent capability: the UoT version, currently 1 or 2; 0 means the default version.",
+                    "type": "integer"
+                },
+                "up_mbps": {
+                    "description": "Hysteria2 only: the server's upload bandwidth in Mbps.",
+                    "type": "integer"
+                },
+                "user_hint_is_mandatory": {
+                    "description": "Mieru only: whether clients must send a user hint that identifies the user.",
+                    "type": "boolean"
+                },
+                "version": {
+                    "description": "Version: Snell accepts 5 or 6, TUIC 5 and Nowhere 3; 0 means the protocol's default.",
+                    "type": "integer"
+                },
+                "xhttp_extra": {
+                    "description": "VLESS/VMess/Trojan XHTTP transport only: the XHTTP extra path and parameters.",
+                    "type": "string"
+                },
+                "xhttp_mode": {
+                    "description": "VLESS/VMess/Trojan XHTTP transport only: the XHTTP mode, such as auto, packet-up or stream-up.",
+                    "type": "string"
+                }
+            }
+        },
+        "dto.QueryServerConfigResponse": {
+            "type": "object",
+            "properties": {
+                "block": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "dns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.NodeDNS"
+                    }
+                },
+                "ip_strategy": {
+                    "type": "string"
+                },
+                "outbound": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.NodeOutbound"
+                    }
+                },
+                "protocols": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.Protocol"
+                    }
+                },
+                "pull_interval": {
+                    "type": "integer"
+                },
+                "push_interval": {
+                    "type": "integer"
+                },
+                "total": {
+                    "type": "integer"
+                },
+                "traffic_report_threshold": {
+                    "type": "integer"
+                }
+            }
+        },
+        "dto.ServerBasic": {
+            "type": "object",
+            "properties": {
+                "pull_interval": {
+                    "type": "integer"
+                },
+                "push_interval": {
+                    "type": "integer"
+                }
+            }
+        },
+        "dto.ServerPushStatusRequest": {
+            "type": "object",
+            "properties": {
+                "cpu": {
+                    "type": "number"
+                },
+                "disk": {
+                    "type": "number"
+                },
+                "mem": {
+                    "type": "number"
+                },
+                "protocol": {
+                    "type": "string"
+                },
+                "secret_key": {
+                    "type": "string"
+                },
+                "server_id": {
+                    "type": "integer"
+                },
+                "updated_at": {
+                    "type": "integer"
+                }
+            }
+        },
+        "dto.ServerPushUserTrafficRequest": {
+            "type": "object",
+            "properties": {
+                "protocol": {
+                    "type": "string"
+                },
+                "secret_key": {
+                    "type": "string"
+                },
+                "server_id": {
+                    "type": "integer"
+                },
+                "traffic": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/dto.UserTraffic"
+                    }
+                }
+            }
+        },
+        "dto.ServerUser": {
+            "type": "object",
+            "properties": {
+                "device_limit": {
+                    "type": "integer"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "speed_limit": {
+                    "type": "integer"
+                },
+                "uuid": {
+                    "type": "string"
+                }
+            }
+        },
+        "dto.UserTraffic": {
+            "type": "object",
+            "properties": {
+                "download": {
+                    "type": "integer"
+                },
+                "uid": {
+                    "type": "integer"
+                },
+                "upload": {
+                    "type": "integer"
+                }
+            }
+        },
+        "result.ResponseSuccessBean": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {},
+                "msg": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "BearerAuth": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        },
+        "NodeSecret": {
+            "type": "apiKey",
+            "name": "secret_key",
+            "in": "query"
+        },
+        "TelegramSecret": {
+            "type": "apiKey",
+            "name": "X-Telegram-Bot-Api-Secret-Token",
+            "in": "header"
+        }
+    }
+}

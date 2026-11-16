@@ -39,12 +39,12 @@ import {
 } from "@workspace/ui/composed/pro-list/pro-list";
 import { cn } from "@workspace/ui/lib/utils";
 import {
-  createUserTicket,
-  createUserTicketFollow,
-  getUserTicketDetails,
-  getUserTicketList,
-  updateUserTicketStatus,
-} from "@workspace/ui/services/user/ticket";
+  postV1PublicTicket as createUserTicket,
+  postV1PublicTicketFollow as createUserTicketFollow,
+  getV1PublicTicketDetail as getUserTicketDetails,
+  getV1PublicTicketList as getUserTicketList,
+  putV1PublicTicket as updateUserTicketStatus,
+} from "@workspace/ui/services/user/user";
 import { formatDate } from "@workspace/ui/utils/formatting";
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -54,8 +54,8 @@ export default function Ticket() {
   const { t } = useTranslation("ticket");
   const statusMap: Record<number, string> = {
     0: t("status.0", "Status"),
-    1: t("status.1", "Pending Reply"),
-    2: t("status.2", "Pending Follow-up"),
+    1: t("status.1", "Awaiting Support"),
+    2: t("status.2", "Support Replied"),
     3: t("status.3", "Resolved"),
     4: t("status.4", "Closed"),
   };
@@ -178,7 +178,7 @@ export default function Ticket() {
                     {
                       "before:bg-yellow-500 before:ring-yellow-500":
                         item.status === 1,
-                      "before:bg-rose-500 before:ring-rose-500":
+                      "before:bg-sky-500 before:ring-sky-500":
                         item.status === 2,
                       "before:bg-green-500 before:ring-green-500":
                         item.status === 3,

@@ -1,5 +1,6 @@
 // Re-export all constants
 export {
+  ALPN_VALUES,
   ENCRYPTION_MODES,
   ENCRYPTION_RTT,
   ENCRYPTION_TYPES,
@@ -8,9 +9,17 @@ export {
   getLabel,
   LABELS,
   multiplexLevels,
+  NAIVE_CONGESTION,
   protocols,
   SECURITY,
+  SHADOWSOCKS_PLUGINS,
+  SNELL_OBFS,
+  SNELL_V6_MODES,
+  SNELL_VERSIONS,
   SS_CIPHERS,
+  SSR_CIPHERS,
+  SSR_OBFS,
+  SSR_PROTOCOLS,
   TRANSPORTS,
   TUIC_CONGESTION,
   TUIC_UDP_RELAY_MODES,
@@ -24,3 +33,9 @@ export { formSchema, protocolApiScheme } from "./schemas";
 export type { FieldConfig, ProtocolType } from "./types";
 // Re-export hooks
 export { useProtocolFields } from "./useProtocolFields";
+
+export {
+  getProtocolFormValues,
+  getUneditableProtocols,
+  preserveUneditableProtocols,
+} from "./values";

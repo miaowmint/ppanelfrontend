@@ -62,7 +62,10 @@ export default function RegisterForm({
             "This email domain is not in the whitelist"
           ),
         }),
-      password: z.string(),
+      password: z
+        .string()
+        .min(8, t("passwordLength", "Password must be 8-128 characters"))
+        .max(128, t("passwordLength", "Password must be 8-128 characters")),
       repeat_password: z.string(),
       code: auth.email.enable_verify ? z.string() : z.string().nullish(),
       invite: invite.forced_invite ? z.string().min(1) : z.string().nullish(),
@@ -114,7 +117,10 @@ export default function RegisterForm({
                 <FormItem>
                   <FormControl>
                     <Input
-                      placeholder="Enter your email..."
+                      placeholder={t(
+                        "placeholders.email",
+                        "Enter your email..."
+                      )}
                       type="email"
                       {...field}
                     />
@@ -130,7 +136,10 @@ export default function RegisterForm({
                 <FormItem>
                   <FormControl>
                     <Input
-                      placeholder="Enter your password..."
+                      placeholder={t(
+                        "placeholders.passwordHint",
+                        "Enter your password (at least 8 characters)..."
+                      )}
                       type="password"
                       {...field}
                     />
@@ -147,7 +156,10 @@ export default function RegisterForm({
                   <FormControl>
                     <Input
                       disabled={loading}
-                      placeholder="Enter password again..."
+                      placeholder={t(
+                        "placeholders.repeatPassword",
+                        "Enter password again..."
+                      )}
                       type="password"
                       {...field}
                     />
@@ -166,7 +178,7 @@ export default function RegisterForm({
                       <div className="flex items-center gap-2">
                         <Input
                           disabled={loading}
-                          placeholder="Enter code..."
+                          placeholder={t("placeholders.code", "Enter code...")}
                           type="text"
                           {...field}
                           value={field.value as string}

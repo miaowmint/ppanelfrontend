@@ -5,11 +5,11 @@ import { Toaster } from "@workspace/ui/components/sonner";
 import { NavigationProgress } from "@workspace/ui/composed/navigation-progress";
 import { TanStackQueryDevtools } from "@workspace/ui/integrations/tanstack-query-devtools";
 import { getCookie } from "@workspace/ui/lib/cookies";
-import { getGlobalConfig } from "@workspace/ui/services/common/common";
 import { isBrowser } from "@workspace/ui/utils/index";
 import { useEffect } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { useGlobalStore } from "@/stores/global";
+import { fetchInitialConfig } from "@/utils/bootstrap";
 
 export const Route = createRootRouteWithContext()({
   component: () => {
@@ -17,7 +17,7 @@ export const Route = createRootRouteWithContext()({
     useEffect(() => {
       const initializeApp = async () => {
         try {
-          const configResponse = await getGlobalConfig();
+          const configResponse = await fetchInitialConfig();
           if (configResponse.data?.data) {
             setCommon(configResponse.data.data);
           }
@@ -50,17 +50,13 @@ export const Route = createRootRouteWithContext()({
           <meta content={description} name="description" />
           <meta content={keywords} name="keywords" />
           <link href={url} rel="canonical" />
-          <link href={logo} rel="icon" type="image/*" />
+          <link href={logo} rel="icon" />
           <link href={logo} rel="apple-touch-icon" sizes="180x180" />
           <link href="/site.webmanifest" rel="manifest" />
         </Helmet>
         <NavigationProgress />
         <Outlet />
         <Toaster closeButton richColors />
-        <div
-          dangerouslySetInnerHTML={{ __html: common?.site.custom_html || "" }}
-          id="custom_html"
-        />
         <TanStackDevtools
           config={{
             position: "bottom-right",

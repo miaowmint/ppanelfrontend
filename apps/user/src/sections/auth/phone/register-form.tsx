@@ -41,7 +41,10 @@ export default function RegisterForm({
     .object({
       telephone_area_code: z.string(),
       telephone: z.string(),
-      password: z.string(),
+      password: z
+        .string()
+        .min(8, t("passwordLength", "Password must be 8-128 characters"))
+        .max(128, t("passwordLength", "Password must be 8-128 characters")),
       repeat_password: z.string(),
       code: z.string(),
       invite: invite.forced_invite ? z.string().min(1) : z.string().nullish(),
@@ -110,7 +113,10 @@ export default function RegisterForm({
                                     );
                                   }
                                 }}
-                                placeholder="Area code..."
+                                placeholder={t(
+                                  "placeholders.areaCode",
+                                  "Area code..."
+                                )}
                                 simple
                                 value={field.value}
                                 whitelist={enable_whitelist ? whitelist : []}
@@ -122,7 +128,10 @@ export default function RegisterForm({
                       />
                       <Input
                         className="rounded-l-none"
-                        placeholder="Enter your telephone..."
+                        placeholder={t(
+                          "placeholders.telephone",
+                          "Enter your telephone..."
+                        )}
                         type="tel"
                         {...field}
                       />
@@ -139,7 +148,10 @@ export default function RegisterForm({
                 <FormItem>
                   <FormControl>
                     <Input
-                      placeholder="Enter your password..."
+                      placeholder={t(
+                        "placeholders.passwordHint",
+                        "Enter your password (at least 8 characters)..."
+                      )}
                       type="password"
                       {...field}
                     />
@@ -156,7 +168,10 @@ export default function RegisterForm({
                   <FormControl>
                     <Input
                       disabled={loading}
-                      placeholder="Enter password again..."
+                      placeholder={t(
+                        "placeholders.repeatPassword",
+                        "Enter password again..."
+                      )}
                       type="password"
                       {...field}
                     />
@@ -174,7 +189,7 @@ export default function RegisterForm({
                     <div className="flex items-center gap-2">
                       <Input
                         disabled={loading}
-                        placeholder="Enter code..."
+                        placeholder={t("placeholders.code", "Enter code...")}
                         type="text"
                         {...field}
                         value={field.value as string}
